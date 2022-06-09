@@ -36,20 +36,16 @@ export default function Interface(props) {
   ]
 
   return (
-    <div className="w-full h-screen min-w-[492px] min-h-[238px] bg-slate-800 bg-mesh p-6 sm:p-8">
+    <div className="w-full h-screen min-w-[492px] min-h-[238px] bg-slate-800 bg-mesh p-6">
       <div className="h-1/5 flex justify-between items-center">
-        <div className="h-full flex-0 flex justify-start items-center">
-          <Lockup className="h-full w-auto" />
-        </div>
-        <div className="h-full flex-1 flex justify-end items-center">
-          <span className="text-md text-slate-300 font-light">@elemaudio/compressor &middot; v1.0.0</span>
-        </div>
+        <Lockup className="h-8 w-auto" />
+        <span className="text-sm text-slate-300 font-light">@elemaudio/compressor &middot; v1.0.0</span>
       </div>
       <div className="flex h-4/5">
         {data.map(({name, value, readout, setValue}) => (
-          <div key={name} className="flex flex-col flex-1 justify-center">
-            <Knob className="flex-initial h-full mx-4" value={value} onChange={setValue} {...colorProps} />
-            <div className="flex-initial sm:mb-4">
+          <div key={name} className="flex flex-col flex-1 justify-center items-center">
+            <Knob className="h-20 w-20 m-4" value={value} onChange={setValue} {...colorProps} />
+            <div className="flex-initial mt-2">
               <div className="text-sm text-slate-50 text-center font-light">{name}</div>
               <div className="text-sm text-pink-500 text-center font-light">{readout}</div>
             </div>
