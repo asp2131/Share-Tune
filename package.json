@@ -1,6 +1,5 @@
 {
-  "name": "compressor",
-  "private": true,
+  "name": "@elemaudio/compressor",
   "version": "1.0.0",
   "type": "module",
   "description": "A textbook hard-knee compressor Elementary plugin",
@@ -12,31 +11,32 @@
     "index.js",
     "README.md"
   ],
+  "publishConfig": {
+    "registry": "https://www.elementary.audio/api/v1/registry/"
+  },
+  "targets": {
+    "default": {
+      "context": "browser"
+    }
+  },
   "scripts": {
     "start": "parcel index.html",
-    "start-plugin": "parcel --no-cache --port 3000 --https --cert localhost-cert.pem --key localhost-key.pem index.html",
+    "start-plugin": "cp manifest.json dist/elementary.config.json && parcel --no-cache --port 3000 --https --cert localhost-cert.pem --key localhost-key.pem index.html",
     "build": "parcel build --no-source-maps --no-cache index.html"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "last 2 versions",
-      "not dead",
-      "not op_mini all",
-      "ie 10"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
+  "browserslist": [
+    ">0.2%",
+    "last 2 versions",
+    "not dead",
+    "not op_mini all",
+    "ie 10"
+  ],
   "devDependencies": {
     "@elemaudio/plugin-renderer": "^1.0.2",
     "@parcel/config-default": "^2.5.0",
     "@parcel/transformer-svg-react": "^2.5.0",
     "@use-gesture/react": "^10.2.15",
-    "parcel": "^2.5.0",
+    "parcel": "^2.6.0",
     "process": "^0.11.10",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
