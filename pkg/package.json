@@ -1,8 +1,8 @@
 {
   "name": "@elemaudio/compressor",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
-  "description": "A textbook hard-knee compressor Elementary plugin",
+  "description": "A standard hard-knee compressor Elementary Audio plugin",
   "author": "Nick Thompson <nick@elementary.audio>",
   "homepage": "https://www.elementary.audio",
   "license": "ISC",
