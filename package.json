@@ -1,24 +1,5 @@
 {
-  "name": "@elemaudio/compressor",
-  "version": "1.0.0",
-  "type": "module",
-  "description": "A textbook hard-knee compressor Elementary plugin",
-  "author": "Nick Thompson <nick@elementary.audio>",
-  "homepage": "https://www.elementary.audio",
-  "license": "ISC",
-  "main": "index.js",
-  "files": [
-    "index.js",
-    "README.md"
-  ],
-  "publishConfig": {
-    "registry": "https://www.elementary.audio/api/v1/registry/"
-  },
-  "targets": {
-    "default": {
-      "context": "browser"
-    }
-  },
+  "private": true,
   "scripts": {
     "start": "parcel index.html",
     "start-plugin": "cp manifest.json dist/elementary.config.json && parcel --no-cache --port 3000 --https --cert localhost-cert.pem --key localhost-key.pem index.html",
@@ -43,8 +24,5 @@
     "resize-observer-polyfill": "^1.5.1",
     "tailwindcss": "^3.0.24",
     "zustand": "^4.0.0-rc.1"
-  },
-  "dependencies": {
-    "@elemaudio/core": "^1.0.3"
   }
 }

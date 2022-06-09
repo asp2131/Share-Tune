@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { manifest } from './index';
+import { manifest } from './pkg/index.js';
 
 import Knob from './Knob.js';
 import Lockup from './Lockup_Dark2.svg';

@@ -7,8 +7,8 @@ import createHooks from 'zustand'
 import createStore from 'zustand/vanilla'
 
 
-import audioRender, { manifest } from './index';
-import Interface from './Interface';
+import audioRender, { manifest } from './pkg/index.js';
+import Interface from './Interface.js';
 
 
 // Initial state management
