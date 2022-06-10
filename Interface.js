@@ -4,6 +4,7 @@ import { manifest } from './pkg/index.js';
 
 import Knob from './Knob.js';
 import Lockup from './Lockup_Dark2.svg';
+import pkg from './pkg/package.json';
 
 
 // The interface of our plugin, exported here as a React.js function
@@ -39,7 +40,7 @@ export default function Interface(props) {
     <div className="w-full h-screen min-w-[492px] min-h-[238px] bg-slate-800 bg-mesh p-6">
       <div className="h-1/5 flex justify-between items-center">
         <Lockup className="h-8 w-auto" />
-        <span className="text-sm text-slate-300 font-light">@elemaudio/compressor &middot; v1.0.0</span>
+        <span className="text-sm text-slate-300 font-light">@elemaudio/compressor &middot; {pkg.version}</span>
       </div>
       <div className="flex h-4/5">
         {data.map(({name, value, readout, setValue}) => (
