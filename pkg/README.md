@@ -11,7 +11,7 @@ on [the Elementary website](https://www.elementary.audio) and configuring your `
 fetch the package as normal:
 
 ```bash
-npm install @elemaudio/compressor
+npm install --save @elemaudio/compressor
 ```
 
 ## Usage Example
@@ -41,3 +41,22 @@ core.on('load', function(e) {
 
 core.initialize();
 ```
+
+## Reference
+
+### compressor(props, xl, xr)
+
+* `@param {object}` props
+* `@param {string}` props.key uniquely identify the compressor
+* `@param {number}` props.attack in [0, 1]
+* `@param {number}` props.release in [0, 1]
+* `@param {number}` props.threshold in [0, 1]
+* `@param {number}` props.ratio in [0, 1]
+* `@param {number}` props.outputGain in [0, 1]
+* `@param {core.Node}` xl left channel input
+* `@param {core.Node}` xr right channel input
+* `@returns {Array<core.Node>}` [yl, yr] left and right output pair
+
+## License
+
+This package is distributed under the terms of the ISC license.

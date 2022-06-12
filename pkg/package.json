@@ -1,6 +1,6 @@
 {
   "name": "@elemaudio/compressor",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "module",
   "description": "A standard hard-knee compressor Elementary Audio plugin",
   "author": "Nick Thompson <nick@elementary.audio>",
