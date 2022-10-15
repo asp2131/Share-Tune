@@ -4,9 +4,16 @@ import { manifest } from './pkg/index.js';
 
 import Knob from './Knob.js';
 import Lockup from './Lockup_Dark2.svg';
+import RegisPlayer from './Player.js';
+import { FileUploader } from "react-drag-drop-files";
+import Upload from './Upload';
+import List from './components/List'
 import pkg from './pkg/package.json';
 
-
+const fileTypes = ["MP3", "WAV", "AIFF", "FLAC", "M4A"];
+const defaultList = [
+  { key: "1", title: "No audio track" },
+];
 // The interface of our plugin, exported here as a React.js function
 // component. The host may use this component to render the interface of our
 // plugin where appropriate.
@@ -14,6 +21,8 @@ import pkg from './pkg/package.json';
 // We use the `props.requestParamValueUpdate` callback provided by the caller
 // of this function to propagate new parameter values to the host.
 export default function Interface(props) {
+  const [file, setFile] = useState(null);
+  const [uploads, setUploads] = useState([{ key: "1", title: "No audio track" }]);
   const colorProps = {
     meterColor: '#EC4899',
     knobColor: '#64748B',
@@ -36,13 +45,36 @@ export default function Interface(props) {
     { name: 'Output Gain',  value: props.outputGain,  readout: mp.outputGain.valueToString(props.outputGain), setValue: setOutputGainValue },
   ]
 
+  const handleChange = (file, files) => {
+    if(uploads[0].fileUrl){
+      files[0].key = `${uploads.length + 1}`;
+      setUploads([...uploads, files[0]])
+      return;
+    }
+    files[0].key = "1";
+    setUploads(files)
+    console.log(uploads)
+  };
+
+
   return (
     <div className="w-full h-screen min-w-[492px] min-h-[238px] bg-slate-800 bg-mesh p-6">
       <div className="h-1/5 flex justify-between items-center">
-        <Lockup className="h-8 w-auto" />
-        <span className="text-sm text-slate-300 font-light">@elemaudio/compressor &middot; {pkg.version}</span>
+        {/* <Lockup className="h-8 w-auto" /> */}
+        <span className="text-sm text-slate-300 font-drark text-pink-500">Share Tune &middot; {pkg.version}</span>
+        <Upload handleChange={handleChange} list={uploads}/>
       </div>
-      <div className="flex h-4/5">
+      {/* <div style={{padding: 20}}></div> */}
+      <List file={file} list={uploads} onChange={setUploads} />
+      {/* <FileUploader handleChange={handleChange} name="file" types={fileTypes} /> */}
+      {/* {file ? <RegisPlayer
+            transcript={transcript}
+            color="primary"
+            size="small"
+            src={file}
+          /> : null} */}
+
+      {/* <div className="flex h-4/5">
         {data.map(({name, value, readout, setValue}) => (
           <div key={name} className="flex flex-col flex-1 justify-center items-center">
             <Knob className="h-20 w-20 m-4" value={value} onChange={setValue} {...colorProps} />
@@ -52,7 +84,7 @@ export default function Interface(props) {
             </div>
           </div>
         ))}
-      </div>
+      </div> */}
     </div>
   );
 }
