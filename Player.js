@@ -12,7 +12,7 @@ import {
     DialogContent,
     DialogActions
 } from "@material-ui/core";
-import { FileCopyOutlined } from "@material-ui/icons";
+import { FileCopyOutlined, RestoreFromTrash } from "@material-ui/icons";
 import AudioPlayer from "material-ui-audio-player";
 import theme from "./theme";
 import { Link } from 'react-router-dom';
@@ -23,7 +23,8 @@ const RegisPlayer = ({
     size = "default",
     elevation = 1,
     transcript = "",
-    file,
+    stem,
+    deleteStem,
     ...rest
 }) => {
     const [openDialog, setOpenDialog] = React.useState(false);
@@ -112,15 +113,18 @@ const RegisPlayer = ({
                             />
                         </Grid>
                         {transcript !== "" && (
-                            <Grid item style={{ display: "flex" }}>                                
+                            <Grid item style={{ display: "flex", alignItems: "baseline" }}>                                
                                 <Tooltip title={success ? "Copied" : "Click to copy"}>
                                     <FileCopyOutlined
                                         fontSize={size}
                                         className={customIconClasses.root}
                                         color={color}
-                                        onClick={() => copy(file)}
+                                        onClick={() => copy(stem.fileUrl)}
                                     // onClick={() => setOpenDialog(true)}
                                     />
+                                </Tooltip>
+                                <Tooltip title={"Delete"}>
+                                    <RestoreFromTrash onClick={()=> deleteStem(stem)}></RestoreFromTrash>
                                 </Tooltip>
                             </Grid>
                         )}

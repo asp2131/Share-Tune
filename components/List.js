@@ -72,9 +72,20 @@ export default function List({ list, onChange }) {
     onChange(updatelist);
   };
 
+  const deleteStem = (stem) => {
+    const updatelist = list.slice();
+    const index = updatelist.indexOf(stem);
+    if (index > -1) { // only splice array when item is found
+    updatelist.splice(index, 1); // 2nd parameter means remove one item only
+    updatelist[0] = { key: "1", title: "No audio track" }
+    onChange(updatelist);
+}
+  }
+
   return (
     <ul className="list">
-      {list.map(({ key, title, fileUrl }, i) => {
+      {list.map((stem, i) => {
+        const { key, title, fileUrl } = stem;
         const isDragging = dragingKey === key;
         const isHover = !isDragging && overKey === key;
 
@@ -102,8 +113,10 @@ export default function List({ list, onChange }) {
                 transcript={transcript}
                 color="primary"
                 size="small"
-                file={fileUrl}
+                list={list}
+                stem={stem}
                 src={fileUrl}
+                deleteStem={deleteStem}
                 /> 
           : title}
           </li>
