@@ -26,3 +26,6 @@ yarn-error.log*
 
 localhost-key.pem
 localhost-cert.pem
+
+# Local Netlify folder
+.netlify
