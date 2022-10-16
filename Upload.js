@@ -1,6 +1,6 @@
 import { Uploader } from "uploader";
-import { UploadButton } from "react-uploader";
 import { useState, useEffect } from "react";
+import Dropdown from './components/Dropdown'
 
 export default function Upload({handleChange, list}){
 let [counter, setCounter] = useState(1)
@@ -10,16 +10,6 @@ const uploader = Uploader({
 });
 
 return (
-    <UploadButton uploader={uploader}
-                options={{multi: true}}
-                onComplete={files => {
-                  handleChange(files[0].fileUrl, files)
-                }}>
-    {({onClick}) =>
-        <button style={{color: "black"}} onClick={onClick}>
-        Upload file...
-        </button>
-    }
-    </UploadButton>
+    <Dropdown uploader={uploader} handleChange={handleChange} list={list}/>
     )
 }

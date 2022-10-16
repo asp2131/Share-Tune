@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { manifest } from './pkg/index.js';
 
 import Knob from './Knob.js';
-import Lockup from './Lockup_Dark2.svg';
+import Lockup from './sharetune.svg';
 import RegisPlayer from './Player.js';
 import { FileUploader } from "react-drag-drop-files";
 import Upload from './Upload';
@@ -56,12 +56,16 @@ export default function Interface(props) {
     console.log(uploads)
   };
 
+  // useEffect(()=> {
+     
+  // }, [uploads])
+
 
   return (
     <div className="w-full h-screen min-w-[492px] min-h-[238px] bg-slate-800 bg-mesh p-6">
       <div className="h-1/5 flex justify-between items-center">
-        {/* <Lockup className="h-8 w-auto" /> */}
-        <span className="text-sm text-slate-300 font-drark text-pink-500">Share Tune &middot; {pkg.version}</span>
+        {/* <span className="text-sm text-slate-300 font-drark text-pink-500"> &middot; {pkg.version}</span> */}
+        <Lockup style={{width: "10ch"}}/>
         <Upload handleChange={handleChange} list={uploads}/>
       </div>
       {/* <div style={{padding: 20}}></div> */}

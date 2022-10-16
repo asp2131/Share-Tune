@@ -50,3 +50,37 @@
 .MuiBox-root {
   width: 28ch;
 }
+
+h1 {
+  text-align: center;
+}
+
+.radiowrapper {
+  width: 200px;
+  border: none;
+  border-radius: 7px;
+  font-size: 22px;
+  padding: 0 20px;
+  outline: none;
+}
+
+.radio {
+  display: flex;
+  justify-content: space-between;
+}
+
+.radiocontent {
+  display: flex;
+  flex-flow: column nowrap;
+  font-size: 16px;
+  padding: 10px;
+  margin-top: 50px;
+  background: #ebebeb;
+  border-radius: 7px;
+}
+
+.radiocontent a {
+  text-decoration: none;
+  color: #4e4e4e;
+  padding: 6px 0;
+}
