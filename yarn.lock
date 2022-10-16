@@ -203,14 +203,7 @@
     "@babel/helper-validator-identifier" "^7.19.1"
     to-fast-properties "^2.0.0"
 
-"@elemaudio/compressor@^1.0.2":
-  version "1.0.2"
-  resolved "http://www.elementary.audio/api/v1/registry/@elemaudio/compressor/-/@elemaudio/compressor-1.0.2.tgz#8551b0b73231db9ed3c48a1f61161f9949cced4a"
-  integrity sha512-YOt2bbm4Edn+wPURNxZ3JCNUbeNrtI5if194wwqZO9Q/WE2D8P+z8GHCqzarCBC0Ff0z+ehAXE3OcWbaN5exVQ==
-  dependencies:
-    "@elemaudio/core" "^1.0.3"
-
-"@elemaudio/core@^1.0.3", "@elemaudio/core@^1.0.8":
+"@elemaudio/core@^1.0.8":
   version "1.0.8"
   resolved "https://registry.yarnpkg.com/@elemaudio/core/-/core-1.0.8.tgz#75b98cbf4b4268ea1f2c80170619f38637d3a27c"
   integrity sha512-+chojEufEKg5vS1b4UL+IYYOa6ijqiYDpFCGrw6QnW5Icf+nPX6/+cKyU14jWfrmE4j3C/Y/hdV1qRwzLmWIFQ==
