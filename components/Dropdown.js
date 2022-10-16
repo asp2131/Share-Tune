@@ -96,9 +96,9 @@ const RadioContent = ({ uploader, handleChange, list, setToggle }) => {
 
     return (
         <div className="radiocontent">
-            <button onClick={() => setToggle(false)} alt="Home">
+            {/* <button onClick={() => setToggle(false)} alt="Home">
                 close
-            </button>
+            </button> */}
             <a alt="About">
                 <UploadButton uploader={uploader}
                     options={{ multi: true }}
